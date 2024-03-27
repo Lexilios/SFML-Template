@@ -14,6 +14,7 @@ public:
         activeColor_ = activeColor;
 
         shape.setFillColor(idleColor_);
+
     }
 
     ~Button() {}
@@ -82,7 +83,7 @@ private:
 class Window {
 public:
     Window() : window(sf::VideoMode(1920, 1080), "Moteur Custom") {
-        buttonManager.addButton(Button(1600.f, 0.f, 600.f, 50.f, sf::Color::Red, sf::Color::Green, sf::Color::Blue));
+        buttonManager.addButton(Button(1600.f, 0.f, 400.f, 50.f, sf::Color::Red, sf::Color::Green, sf::Color::Blue));
         buttonManager.addButton(Button(1665.f, 100.f, 200.f, 50.f, sf::Color::Yellow, sf::Color::Magenta, sf::Color::Cyan));
         buttonManager.addButton(Button(1665.f, 180.f, 200.f, 50.f, sf::Color::Yellow, sf::Color::Magenta, sf::Color::Cyan));
         buttonManager.addButton(Button(1665.f, 260.f, 200.f, 50.f, sf::Color::Yellow, sf::Color::Magenta, sf::Color::Cyan));
@@ -107,6 +108,8 @@ public:
                 if (event.type == sf::Event::Closed)
                     window.close();
             }
+
+
 
             sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
 
