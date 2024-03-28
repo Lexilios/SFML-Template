@@ -177,7 +177,6 @@
     <ClInclude Include="ButtonManager.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Hierarchy.h" />
-    <ClInclude Include="Scenes\DefaultScene.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,8 @@
 
 Button::Button(float x, float y, float width, float height, sf::Color idleColor, sf::Color hoverColor, sf::Color activeColor) {
     buttonState = IDLE;
+    expanded = false;
+    mouseHeld = false; // Initialisation de la variable mouseHeld
 
     shape.setPosition(sf::Vector2f(x, y));
     shape.setSize(sf::Vector2f(width, height));
@@ -16,14 +18,30 @@ Button::Button(float x, float y, float width, float height, sf::Color idleColor,
 Button::~Button() {}
 
 void Button::update(const sf::Vector2f& mousePos) {
-    buttonState = IDLE;
-
+    // Vérifier si le pointeur de la souris est sur le bouton
     if (shape.getGlobalBounds().contains(mousePos)) {
-        buttonState = HOVER;
+        // Si le bouton de la souris est enfoncé, mettre à jour l'état
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+            if (!mouseHeld) {
+                // Inverser l'état de déploiement à chaque clic
+                expanded = !expanded;
+                mouseHeld = true; // Indiquer que le bouton de la souris est enfoncé
+            }
+        }
+        else {
+            mouseHeld = false; // Indiquer que le bouton de la souris n'est plus enfoncé
+        }
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        // Mettre à jour l'état du bouton
+        if (expanded)
             buttonState = ACTIVE;
+        else
+            buttonState = HOVER;
     }
+    else {
+        buttonState = IDLE;
+    }
+
 
     switch (buttonState) {
     case IDLE:
@@ -40,6 +58,15 @@ void Button::update(const sf::Vector2f& mousePos) {
 
 void Button::draw(sf::RenderWindow& window) {
     window.draw(shape);
+
+    
+    if (expanded) {
+        sf::RectangleShape contentRect(sf::Vector2f(400.f, 400.f)); 
+        contentRect.setFillColor(sf::Color(174,174,174));
+        contentRect.setPosition(shape.getPosition().x, shape.getPosition().y + shape.getSize().y); 
+
+        window.draw(contentRect);
+    }
 }
 
 bool Button::isActive() const {
@@ -53,3 +80,8 @@ void Button::move(sf::Vector2f offset) {
 sf::Vector2f Button::getPosition() const {
     return shape.getPosition();
 }
+
+void Button::setExpanded(bool expanded) {
+    this->expanded = expanded;
+}
+

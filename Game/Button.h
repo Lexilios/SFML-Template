@@ -15,10 +15,13 @@ public:
     bool isActive() const;
     void move(sf::Vector2f offset);
     sf::Vector2f getPosition() const;
+    void setExpanded(bool expanded);
 
 private:
-    enum ButtonState { IDLE, HOVER, ACTIVE };
+    enum ButtonState { IDLE, HOVER, ACTIVE, EXPANDED };
     ButtonState buttonState;
+    bool expanded;
+    bool mouseHeld; // Variable pour suivre si le bouton de la souris est enfoncé
 
     sf::RectangleShape shape;
     sf::Color idleColor_, hoverColor_, activeColor_;
