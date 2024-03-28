@@ -28,4 +28,4 @@ private:
     std::vector<std::shared_ptr<HierarchyNode>> children;
 };
 
-#endif // HIERARCHY_NODE_H
+#endif 

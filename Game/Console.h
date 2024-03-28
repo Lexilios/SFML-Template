@@ -26,4 +26,4 @@ private:
     void updateText();
 };
 
-#endif // CONSOLE_H
+#endif 

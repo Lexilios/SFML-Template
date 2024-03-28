@@ -13,7 +13,7 @@ public:
     void run();
 
 private:
-    void drawHierarchy(); // Ajoutez cette méthode pour dessiner la hiérarchie
+    void drawHierarchy();
 
     sf::RenderWindow window;
     ButtonManager buttonManager;
@@ -23,4 +23,4 @@ private:
     Console console;
 };
 
-#endif // WINDOW_H
+#endif 

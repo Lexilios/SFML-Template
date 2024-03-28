@@ -14,8 +14,8 @@ Window::Window() : window(sf::VideoMode(1920, 1080), "Moteur Custom"), console(1
     console.setPosition(0.f, 900.f);
     console.setSize(1600.f, 400.f);
 
-    scrollSpeed = 20.f; // Adjust scroll speed as needed
-    scrollStartIndex = 1; // Start scrolling after the 1st button
+    scrollSpeed = 20.f; 
+    scrollStartIndex = 1; 
 }
 
 void Window::run() {
@@ -25,7 +25,7 @@ void Window::run() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            // Handle mouse wheel scrolling
+            
             if (event.type == sf::Event::MouseWheelScrolled) {
                 if (event.mouseWheelScroll.delta > 0) {
                     buttonManager.moveButtons(sf::Vector2f(0.f, scrollSpeed), scrollStartIndex);
@@ -38,7 +38,7 @@ void Window::run() {
 
         sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
 
-        // Update buttons
+      
         buttonManager.update(mousePos);
 
         window.clear(sf::Color(222, 236, 255));
@@ -47,17 +47,17 @@ void Window::run() {
         buttonManager.draw(window);
         console.draw(window);
 
-        drawHierarchy(); // Appel de la méthode pour dessiner la hiérarchie
+        drawHierarchy(); 
 
         window.display();
     }
 }
 
 void Window::drawHierarchy() {
-    // Dessinez un carré gris pour représenter la hiérarchie
-    sf::RectangleShape hierarchySquare(sf::Vector2f(400.f, 900.f)); // Définissez la taille du carré
-    hierarchySquare.setPosition(0.f, 0.f); // Définissez les coordonnées du carré
-    hierarchySquare.setFillColor(sf::Color(174, 174, 174)); // Définissez la couleur du carré
 
-    window.draw(hierarchySquare); // Dessinez le carré dans la fenêtre
+    sf::RectangleShape hierarchySquare(sf::Vector2f(400.f, 900.f)); 
+    hierarchySquare.setPosition(0.f, 0.f);
+    hierarchySquare.setFillColor(sf::Color(174, 174, 174)); 
+
+    window.draw(hierarchySquare);
 }

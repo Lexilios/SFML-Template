@@ -4,12 +4,12 @@ Console::Console(float width, float height) {
     background.setSize(sf::Vector2f(width, height));
     background.setFillColor(sf::Color(36, 36, 36));
 
-    font.loadFromFile("arial.ttf"); // Charger la police de votre choix
+    font.loadFromFile("arial.ttf");
 
     text.setFont(font);
     text.setCharacterSize(14);
     text.setFillColor(sf::Color::White);
-    text.setPosition(10.f, height - 20.f); // Positionner le texte en bas de la console
+    text.setPosition(10.f, height - 20.f); 
 }
 
 void Console::addMessage(const std::string& message) {

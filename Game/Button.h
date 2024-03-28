@@ -24,4 +24,4 @@ private:
     sf::Color idleColor_, hoverColor_, activeColor_;
 };
 
-#endif // BUTTON_H
+#endif

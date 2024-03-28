@@ -18,4 +18,4 @@ private:
     std::vector<Button> buttons;
 };
 
-#endif // BUTTON_MANAGER_H
+#endif 

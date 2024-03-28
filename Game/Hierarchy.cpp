@@ -15,5 +15,5 @@ private:
     float scrollSpeed;
     unsigned int scrollStartIndex;
     Console console;
-    std::shared_ptr<HierarchyNode> sceneHierarchy; // Ajout de la hiérarchie de la scène
+    std::shared_ptr<HierarchyNode> sceneHierarchy;
 };
